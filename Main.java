@@ -5,26 +5,21 @@ public class Main {
 	
     public static void main(String[] args)
     {
-    	
+    	 BST bst = new BST();
     	File file = new File("Numbers");
     	try {
 			Scanner scan = new Scanner(file);
+			while(scan.hasNextLine())
+	    	{
+	    		String data = scan.nextLine();
+	    		bst.insert(Integer.parseInt(data));
+	    	}
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
 			System.out.println("Error: reading File");
+			e.printStackTrace();
 		}
-        BST bst = new BST();
-        
-        bst.insert(50);
-        bst.insert(30);
-        bst.insert(20);
-        bst.insert(40);
-        bst.insert(70);
-        bst.insert(60);
-        bst.insert(80);
  
         bst.inorder();
     }
-
 }
