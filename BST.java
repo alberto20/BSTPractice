@@ -71,4 +71,59 @@ class BST {
             inorderRec(root.right);
         }
     }
+    
+    public void callSearch(int key)
+    {
+    	search(root,key);
+    }
+    
+    // Search the Node list for the key requested using recursive method
+    private Node search(Node root, int key)
+    {
+    	// if List empty return print a statement to console that list is empty
+    	if(root == null)
+    	{
+    		System.out.println("Error: The list is empty!");
+    	}
+    	
+    	// if Key is equal to the node key print key found and return to exit recursive method
+    	if(key == root.key)
+    	{
+    		System.out.println("Key Found!");
+    		return root;
+    	}
+    	
+    	// if key less then node key traverse on left branch
+    	if(key < root.key)
+    	{
+    		// if next node is null then not in list and prompts the user key not in list and return to exit recursive method
+    		if(root.left==null)
+    		{
+    			System.out.println("Key not in List!");
+    			return root;
+    		}
+    		// if not null traverse left branch
+    		else
+    		{
+    			search(root.left, key);
+    		}
+    	}
+    	
+    	// if key greater then node key traverse on right branch
+    	if(key > root.key)
+    	{
+    		// if next node is null then not in list and prompts the user key not in list and return to exit recursive method
+    		if(root.right==null)
+    		{
+    			System.out.println("Key not in List!");
+    			return root;
+    		}
+    		// if not null traverse right branch
+    		else
+    		{
+    			search(root.right, key);
+    		}
+    	}
+    	return root;
+    }
 }
